@@ -1,0 +1,11 @@
+{
+  "name": "NSwag-NJsonSchema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
+  "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
+  "license": "MIT",
+  "dependencies": {
+    "patch-package": "6.5.1"
+  }
+}

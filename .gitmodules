@@ -1,0 +1,6 @@
+[submodule "NJsonSchema"]
+	path = NJsonSchema
+	url = https://github.com/RicoSuter/NJsonSchema.git
+[submodule "NSwag"]
+	path = NSwag
+	url = https://github.com/RicoSuter/NSwag.git
