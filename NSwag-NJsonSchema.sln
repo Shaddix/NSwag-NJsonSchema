@@ -4,17 +4,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NSwag", "NSwag", "{AD6A0DC7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NJsonSchema", "NJsonSchema", "{A416F232-4E60-418F-BF27-F83D1CFA2DD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema", "..\NJsonSchema\src\NJsonSchema\NJsonSchema.csproj", "{9651153D-7B65-4B03-9AE0-165392188396}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema", "NJsonSchema\src\NJsonSchema\NJsonSchema.csproj", "{9651153D-7B65-4B03-9AE0-165392188396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema.CodeGeneration.TypeScript", "..\NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript\NJsonSchema.CodeGeneration.TypeScript.csproj", "{0C40C0B1-8B8C-4D13-82BD-8BD15A4B64F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema.CodeGeneration.TypeScript", "NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript\NJsonSchema.CodeGeneration.TypeScript.csproj", "{0C40C0B1-8B8C-4D13-82BD-8BD15A4B64F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema.CodeGeneration", "..\NJsonSchema\src\NJsonSchema.CodeGeneration\NJsonSchema.CodeGeneration.csproj", "{9916FA0E-CD14-48C4-B60B-5C89C3985134}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema.CodeGeneration", "NJsonSchema\src\NJsonSchema.CodeGeneration\NJsonSchema.CodeGeneration.csproj", "{9916FA0E-CD14-48C4-B60B-5C89C3985134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.Core", "..\NSwag\src\NSwag.Core\NSwag.Core.csproj", "{A0AB3943-586B-4BF7-9099-2E32C4C010BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.Core", "NSwag\src\NSwag.Core\NSwag.Core.csproj", "{A0AB3943-586B-4BF7-9099-2E32C4C010BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.CodeGeneration", "..\NSwag\src\NSwag.CodeGeneration\NSwag.CodeGeneration.csproj", "{56649855-84F4-4B10-863D-A10F920F854F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.CodeGeneration", "NSwag\src\NSwag.CodeGeneration\NSwag.CodeGeneration.csproj", "{56649855-84F4-4B10-863D-A10F920F854F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.CodeGeneration.TypeScript", "..\NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj", "{6C46C09C-F05C-4E40-9CE2-82C27B06F559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.CodeGeneration.TypeScript", "NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj", "{6C46C09C-F05C-4E40-9CE2-82C27B06F559}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGeneration.Tests", "CodeGeneration.Tests\CodeGeneration.Tests.csproj", "{6C7F3A5F-F8A6-41C5-AEC5-21C75169D0DC}"
 EndProject
