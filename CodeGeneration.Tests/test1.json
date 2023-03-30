@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Araneo API",
+    "description": "Araneo REST API",
+    "license": {
+      "name": "Proprietary"
+    },
+    "version": "v-1"
+  },
+  "servers": [
+    {
+      "url": "https://develop-api.mna-dev.scan-track.eu",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "ValueDto": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "FilterOperator": {
+        "type": "string",
+        "enum": [
+          "is",
+          "is not",
+          "in",
+          "not in",
+          ">",
+          ">=",
+          "<",
+          "<=",
+          "contains"
+        ]
+      },
+      "FilterValueDto": {
+        "required": [
+          "attributeName",
+          "operationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "operationCode": {
+            "$ref": "#/components/schemas/FilterOperator"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ValueDto"
+          },
+          "values": {
+            "type": "array",
+            "deprecated": true,
+            "items": {
+              "type": "object",
+              "deprecated": true
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
