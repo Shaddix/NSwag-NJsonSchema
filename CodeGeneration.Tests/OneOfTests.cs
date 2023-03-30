@@ -5,11 +5,11 @@ using NSwag.CodeGeneration.TypeScript;
 namespace CodeGeneration.Tests;
 
 [UsesVerify]
-public class UnitTest1
+public class OneOfTests
 {
 
     [Fact]
-    public async Task Tst1()
+    public async Task BasicExample()
     {
         // Arrange
         var document = await OpenApiDocument.FromFileAsync("test1.json");
