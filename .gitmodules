@@ -1,7 +1,8 @@
-[submodule "NSwag"]
-	path = NSwag
-	url = https://github.com/RicoSuter/NSwag.git
 [submodule "NJsonSchema"]
 	path = NJsonSchema
 	url = https://github.com/mccsoft/NJsonSchema.git
+	branch = react-query
+[submodule "NSwag"]
+	path = NSwag
+	url = https://github.com/mccsoft/NSwag.git
 	branch = react-query

@@ -19,6 +19,18 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript.Tests\NJsonSchema.CodeGeneration.TypeScript.Tests.csproj" />
+        <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="test1.json" />
+        <Content Include="test1.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>
