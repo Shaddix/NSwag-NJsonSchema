@@ -1,3 +1,4 @@
+**/*.received.txt
 # jest test reports
 */junit.xml
 deploy-compose.yaml
