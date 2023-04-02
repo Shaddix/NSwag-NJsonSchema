@@ -1,6 +1,6 @@
 {
   "name": "nswag-self-contained",
-  "version": "13.18.3-beta.3",
+  "version": "13.18.3-beta.4",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
@@ -22,6 +22,10 @@
   },
   "files": [
     "bin/nswag-portable",
-    "bin/nswag-portable.exe"
-  ]
+    "bin/nswag-portable.exe",
+    "nswag-portable.js"
+  ],
+  "bin": {
+    "nswag-portable": "nswag-portable.js"
+  }
 }
