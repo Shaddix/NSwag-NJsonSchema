@@ -1,11 +1,27 @@
 {
-  "name": "NSwag-NJsonSchema",
-  "version": "1.0.0",
+  "name": "nswag-self-contained",
+  "version": "13.18.3-beta.1",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
   "license": "MIT",
-  "dependencies": {
-    "patch-package": "6.5.1"
-  }
+  "keywords": [
+    "swagger",
+    "nswag",
+    "portable"
+  ],
+  "scripts": {
+    "do-publish": "yarn publish",
+    "prepublish": "yarn build",
+    "build": "yarn publish-win && yarn publish-linux && yarn copy-to-publish",
+    "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin",
+    "publish-win": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r win-x64 -o publish-win",
+    "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux"
+  },
+  "devDependencies": {
+    "copyfiles": "2.4.1"
+  },
+  "files": [
+    "./bin/**/*"
+  ]
 }
