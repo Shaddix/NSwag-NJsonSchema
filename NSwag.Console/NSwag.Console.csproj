@@ -7,6 +7,7 @@
         <Nullable>enable</Nullable>
         <PublishSingleFile>true</PublishSingleFile>
         <AssemblyName>nswag-portable</AssemblyName>
+        <PackAsTool>true</PackAsTool>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,7 +17,22 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NSwag\src\NSwag.ConsoleCore\NSwag.ConsoleCore.csproj" />
+      <Compile Include="..\NSwag\src\NSwag.ConsoleCore\CoreConsoleHost.cs">
+        <Link>CoreConsoleHost.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NConsole" Version="3.9.6519.30868" />
+      <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+      <PackageReference Include="System.Net.Http" Version="4.3.4" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript\NJsonSchema.CodeGeneration.TypeScript.csproj" />
+      <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj" />
     </ItemGroup>
 
 </Project>
