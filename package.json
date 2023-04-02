@@ -1,6 +1,6 @@
 {
   "name": "nswag-self-contained",
-  "version": "13.18.3-beta.5",
+  "version": "13.18.3-beta.6",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
@@ -12,13 +12,17 @@
   ],
   "scripts": {
     "do-publish": "yarn publish",
+    "prepublish": "yarn clean && yarn build",
     "build": "yarn publish-win && yarn publish-linux && yarn copy-to-publish",
+    "clean": "yarn rimraf publish-win && yarn rimraf publish-linux",
     "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin",
     "publish-win": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r win-x64 -o publish-win",
-    "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux"
+    "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux",
+    "verify": "bin/nswag-portable openapi2tsclient /input:https://petstore.swagger.io/v2/swagger.json /output:axios-client.ts /template:Axios /serviceHost:."
   },
   "devDependencies": {
-    "copyfiles": "2.4.1"
+    "copyfiles": "2.4.1",
+    "rimraf": "4.4.1"
   },
   "files": [
     "bin/nswag-portable",
