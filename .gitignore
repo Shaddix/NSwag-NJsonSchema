@@ -1,8 +1,10 @@
 **/*.received.txt
+**/*.txt.bak
 publish
 publish-win
 publish-linux
 bin
+
 
 # jest test reports
 */junit.xml
