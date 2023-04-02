@@ -22,6 +22,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJsonSchema.CodeGeneration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.ConsoleCore", "NSwag\src\NSwag.ConsoleCore\NSwag.ConsoleCore.csproj", "{88BA4336-A784-472A-B73A-B560E3938185}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.CodeGeneration.TypeScript.Tests", "NSwag\src\NSwag.CodeGeneration.TypeScript.Tests\NSwag.CodeGeneration.TypeScript.Tests.csproj", "{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.AspNetCore.Launcher", "NSwag\src\NSwag.AspNetCore.Launcher\NSwag.AspNetCore.Launcher.csproj", "{3FCE0EE4-730B-49D2-942B-A4060603C4B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.Console", "NSwag.Console\NSwag.Console.csproj", "{FE63300A-7717-4F00-ABAC-61C3C9D4EC9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ci", ".ci", "{E255DA54-6FBB-478F-8897-1810CE825C40}"
+	ProjectSection(SolutionItems) = preProject
+		package.json = package.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +75,18 @@ Global
 		{88BA4336-A784-472A-B73A-B560E3938185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88BA4336-A784-472A-B73A-B560E3938185}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88BA4336-A784-472A-B73A-B560E3938185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCE0EE4-730B-49D2-942B-A4060603C4B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCE0EE4-730B-49D2-942B-A4060603C4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCE0EE4-730B-49D2-942B-A4060603C4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCE0EE4-730B-49D2-942B-A4060603C4B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE63300A-7717-4F00-ABAC-61C3C9D4EC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE63300A-7717-4F00-ABAC-61C3C9D4EC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE63300A-7717-4F00-ABAC-61C3C9D4EC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE63300A-7717-4F00-ABAC-61C3C9D4EC9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9651153D-7B65-4B03-9AE0-165392188396} = {A416F232-4E60-418F-BF27-F83D1CFA2DD2}
@@ -74,5 +97,7 @@ Global
 		{6C46C09C-F05C-4E40-9CE2-82C27B06F559} = {AD6A0DC7-5F2C-47CB-90BF-F9F5D825FC8B}
 		{17E23EB2-2876-494F-AD8B-6C9046E4D976} = {A416F232-4E60-418F-BF27-F83D1CFA2DD2}
 		{88BA4336-A784-472A-B73A-B560E3938185} = {AD6A0DC7-5F2C-47CB-90BF-F9F5D825FC8B}
+		{8C0EE761-3FC7-4AA1-8F51-ABF22B7AB9D0} = {AD6A0DC7-5F2C-47CB-90BF-F9F5D825FC8B}
+		{3FCE0EE4-730B-49D2-942B-A4060603C4B4} = {AD6A0DC7-5F2C-47CB-90BF-F9F5D825FC8B}
 	EndGlobalSection
 EndGlobal
