@@ -3,6 +3,7 @@
 publish
 publish-win
 publish-linux
+publish-mac
 bin
 
 
