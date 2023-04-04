@@ -1,6 +1,6 @@
 {
   "name": "nswag-self-contained",
-  "version": "13.18.3-beta.11",
+  "version": "13.18.3-beta.13",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
@@ -15,7 +15,7 @@
     "prepublish": "yarn clean && yarn build",
     "build": "yarn publish-win && yarn publish-linux && yarn publish-mac && yarn copy-to-publish",
     "clean": "yarn rimraf publish-win && yarn rimraf publish-linux && yarn rimraf publish-mac",
-    "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin/nswag-portable.mac",
+    "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn rename -f publish-mac/nswag-portable ../bin/nswag-portable.mac",
     "publish-win": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r win-x64 -o publish-win",
     "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux",
     "publish-mac": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r osx-x64 -o publish-mac",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "copyfiles": "2.4.1",
+    "rename-cli": "6.2.1",
     "rimraf": "4.4.1"
   },
   "files": [
