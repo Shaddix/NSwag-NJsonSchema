@@ -11,6 +11,8 @@ public class OneOfTests
     [Theory]
     [InlineData("test1.json")]
     [InlineData("inheritance-allof.json")]
+    [InlineData("inheritance-oneof2.json")]
+    [InlineData("inheritance-oneof3.json")]
     [InlineData("inheritance-oneof.json")]
     [InlineData("pet-store.json")]
     public async Task Sample(string file)

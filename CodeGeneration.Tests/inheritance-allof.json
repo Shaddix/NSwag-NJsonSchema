@@ -17,62 +17,92 @@
   "paths": {},
   "components": {
     "schemas": {
-      "UseAttributeInAdditionalInfoDto": {
-        "required": ["attributeName", "transformerType"],
+      "AppointmentEventDto": {
         "type": "object",
+        "discriminator": {
+          "propertyName": "discriminator",
+          "mapping": {
+            "VisitListDto": "#/components/schemas/VisitListDto",
+            "MeetingListDto": "#/components/schemas/MeetingListDto",
+            "AbsenceListDto": "#/components/schemas/AbsenceListDto"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "discriminator",
+          "id",
+          "isDeleted",
+          "title"
+        ],
         "properties": {
-          "attributeName": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "title": {
             "type": "string"
           },
-          "transformerType": {
-            "$ref": "#/components/schemas/LocationNodeTransformerType"
+          "discriminator": {
+            "type": "string"
           }
         }
       },
-      "LocationNodeTransformerType": {
-        "type": "string",
-        "enum": ["USE_ATTRIBUTE_IN_ADDITIONAL_INFO"]
-      },
-      "LocationNodeTransformerDto": {
-        "required": ["transformerType"],
-        "type": "object",
-        "properties": {
-          "transformerType": {
-            "$ref": "#/components/schemas/LocationNodeTransformerType"
+      "VisitListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AppointmentEventDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lastPatientNotificationDateTime"
+            ],
+            "properties": {
+              "lastPatientNotificationDateTime": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
           }
-        },
-        "discriminator": {
-          "propertyName": "transformerType",
-          "mapping": {
-            "USE_ATTRIBUTE_IN_ADDITIONAL_INFO": "#/components/schemas/UseAttributeInAdditionalInfoDto"
-          }
-        },
-        "oneOf": [{
-          "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
-        }]
+        ]
       },
-      "LocationNodeTransformerDto2": {
-        "required": ["transformerType2"],
-        "type": "object",
-        "properties": {
-          "transformerType2": {
-            "$ref": "#/components/schemas/LocationNodeTransformerType"
+      "MeetingListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AppointmentEventDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
-        },
-        "discriminator": {
-          "propertyName": "transformerType2",
-          "mapping": {
-            "USE_ATTRIBUTE_IN_ADDITIONAL_INFO2": "#/components/schemas/UseAttributeInAdditionalInfoDto"
+        ]
+      },
+      "AbsenceListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AppointmentEventDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "absenceReasonId"
+            ],
+            "properties": {
+              "absenceReasonId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
           }
-        },
-        "oneOf": [{
-          "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
-        }]
-      },
-      "LocationCriteriaDto": {
-        "type": "string",
-        "enum": ["PARENT_ID", "ATTRIBUTE_PRESENT"]
-      },
+        ]
+      }
     },
     "securitySchemes": {
       "bearer": {

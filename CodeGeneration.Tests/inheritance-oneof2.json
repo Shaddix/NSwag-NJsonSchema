@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Test API",
+    "description": "Test REST API",
+    "license": {
+      "name": "Proprietary"
+    },
+    "version": "v-1"
+  },
+  "servers": [
+    {
+      "url": "https://test.eu",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "AttributePresentLocationCriteriaDto": {
+        "required": ["attributeName", "criteriaType"],
+        "type": "object",
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "criteriaType": {
+            "$ref": "#/components/schemas/LocationCriteriaType"
+          }
+        }
+      },
+      "LocationCriteriaDto": {
+        "required": ["criteriaType"],
+        "type": "object",
+        "properties": {
+          "criteriaType": {
+            "$ref": "#/components/schemas/LocationCriteriaType"
+          }
+        },
+        "discriminator": {
+          "propertyName": "criteriaType",
+          "mapping": {
+            "PARENT_ID": "#/components/schemas/ParentIdLocationCriteriaDto",
+            "ATTRIBUTE_PRESENT": "#/components/schemas/AttributePresentLocationCriteriaDto"
+          }
+        },
+        "oneOf": [{
+          "$ref": "#/components/schemas/ParentIdLocationCriteriaDto"
+        }, {
+          "$ref": "#/components/schemas/AttributePresentLocationCriteriaDto"
+        }]
+      },
+      "LocationCriteriaType": {
+        "type": "string",
+        "enum": ["PARENT_ID", "ATTRIBUTE_PRESENT"]
+      },
+      "LocationType": {
+        "type": "string",
+        "enum": ["LOCATION", "ZONE"]
+      },
+      "ParentIdLocationCriteriaDto": {
+        "required": ["criteriaType"],
+        "type": "object",
+        "properties": {
+          "parentLocationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "locationType": {
+            "$ref": "#/components/schemas/LocationType"
+          },
+          "criteriaType": {
+            "$ref": "#/components/schemas/LocationCriteriaType"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

@@ -9,162 +9,162 @@
 
 
 
-export class UseAttributeInAdditionalInfoDto implements IUseAttributeInAdditionalInfoDto {
-    attributeName!: string;
-
-    [key: string]: any;
+export class AppointmentEventDto implements IAppointmentEventDto {
+    id!: number;
+    isDeleted!: boolean;
+    title!: string;
 
     protected _discriminator: string;
 
-    constructor(data?: IUseAttributeInAdditionalInfoDto) {
+    constructor(data?: IAppointmentEventDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
                     (<any>this)[property] = (<any>data)[property];
             }
         }
-        this._discriminator = "UseAttributeInAdditionalInfoDto";
+        this._discriminator = "AppointmentEventDto";
     }
 
     init(_data?: any) {
         if (_data) {
-            for (var property in _data) {
-                if (_data.hasOwnProperty(property))
-                    this[property] = _data[property];
-            }
-            this.attributeName = _data["attributeName"];
+            this.id = _data["id"];
+            this.isDeleted = _data["isDeleted"];
+            this.title = _data["title"];
         }
     }
 
-    static fromJS(data: any): UseAttributeInAdditionalInfoDto {
+    static fromJS(data: any): AppointmentEventDto {
         data = typeof data === 'object' ? data : {};
-        if (data["transformerType"] === "USE_ATTRIBUTE_IN_ADDITIONAL_INFO") {
-            let result = new LocationNodeTransformerDto();
+        if (data["discriminator"] === "VisitListDto") {
+            let result = new VisitListDto();
             result.init(data);
             return result;
         }
-        if (data["transformerType"] === "USE_ATTRIBUTE_IN_ADDITIONAL_INFO2") {
-            let result = new LocationNodeTransformerDto2();
+        if (data["discriminator"] === "MeetingListDto") {
+            let result = new MeetingListDto();
             result.init(data);
             return result;
         }
-        let result = new UseAttributeInAdditionalInfoDto();
+        if (data["discriminator"] === "AbsenceListDto") {
+            let result = new AbsenceListDto();
+            result.init(data);
+            return result;
+        }
+        let result = new AppointmentEventDto();
         result.init(data);
         return result;
     }
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        for (var property in this) {
-            if (this.hasOwnProperty(property))
-                data[property] = this[property];
-        }
-        data["transformerType"] = this._discriminator;
-        data["attributeName"] = this.attributeName;
+        data["discriminator"] = this._discriminator;
+        data["id"] = this.id;
+        data["isDeleted"] = this.isDeleted;
+        data["title"] = this.title;
         return data;
     }
 }
 
-export interface IUseAttributeInAdditionalInfoDto {
-    attributeName: string;
-
-    [key: string]: any;
+export interface IAppointmentEventDto {
+    id: number;
+    isDeleted: boolean;
+    title: string;
 }
 
-export enum LocationNodeTransformerType {
-    USE_ATTRIBUTE_IN_ADDITIONAL_INFO = "USE_ATTRIBUTE_IN_ADDITIONAL_INFO",
-}
+export class VisitListDto extends AppointmentEventDto implements IVisitListDto {
+    lastPatientNotificationDateTime!: Date | undefined;
 
-export class LocationNodeTransformerDto extends UseAttributeInAdditionalInfoDto implements ILocationNodeTransformerDto {
-
-    [key: string]: any;
-
-    constructor(data?: ILocationNodeTransformerDto) {
+    constructor(data?: IVisitListDto) {
         super(data);
-        this._discriminator = "USE_ATTRIBUTE_IN_ADDITIONAL_INFO";
+        this._discriminator = "VisitListDto";
     }
 
     override init(_data?: any) {
         super.init(_data);
         if (_data) {
-            for (var property in _data) {
-                if (_data.hasOwnProperty(property))
-                    this[property] = _data[property];
-            }
+            this.lastPatientNotificationDateTime = _data["lastPatientNotificationDateTime"] ? new Date(_data["lastPatientNotificationDateTime"].toString()) : <any>undefined;
         }
     }
 
-    static override fromJS(data: any): LocationNodeTransformerDto {
+    static override fromJS(data: any): VisitListDto {
         data = typeof data === 'object' ? data : {};
-        let result = new LocationNodeTransformerDto();
+        let result = new VisitListDto();
         result.init(data);
         return result;
     }
 
     override toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        for (var property in this) {
-            if (this.hasOwnProperty(property))
-                data[property] = this[property];
-        }
+        data["lastPatientNotificationDateTime"] = this.lastPatientNotificationDateTime ? this.lastPatientNotificationDateTime.toISOString() : <any>undefined;
         super.toJSON(data);
         return data;
     }
 }
 
-export interface ILocationNodeTransformerDto extends IUseAttributeInAdditionalInfoDto {
-
-    [key: string]: any;
+export interface IVisitListDto extends IAppointmentEventDto {
+    lastPatientNotificationDateTime: Date | undefined;
 }
 
-export class LocationNodeTransformerDto2 extends UseAttributeInAdditionalInfoDto implements ILocationNodeTransformerDto2 {
-    transformerType2!: LocationNodeTransformerType;
+export class MeetingListDto extends AppointmentEventDto implements IMeetingListDto {
 
-    [key: string]: any;
-
-    constructor(data?: ILocationNodeTransformerDto2) {
+    constructor(data?: IMeetingListDto) {
         super(data);
-        this._discriminator = "USE_ATTRIBUTE_IN_ADDITIONAL_INFO2";
+        this._discriminator = "MeetingListDto";
     }
 
     override init(_data?: any) {
         super.init(_data);
-        if (_data) {
-            for (var property in _data) {
-                if (_data.hasOwnProperty(property))
-                    this[property] = _data[property];
-            }
-            this.transformerType2 = _data["transformerType2"];
-        }
     }
 
-    static override fromJS(data: any): LocationNodeTransformerDto2 {
+    static override fromJS(data: any): MeetingListDto {
         data = typeof data === 'object' ? data : {};
-        let result = new LocationNodeTransformerDto2();
+        let result = new MeetingListDto();
         result.init(data);
         return result;
     }
 
     override toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        for (var property in this) {
-            if (this.hasOwnProperty(property))
-                data[property] = this[property];
-        }
-        data["transformerType2"] = this.transformerType2;
         super.toJSON(data);
         return data;
     }
 }
 
-export interface ILocationNodeTransformerDto2 extends IUseAttributeInAdditionalInfoDto {
-    transformerType2: LocationNodeTransformerType;
-
-    [key: string]: any;
+export interface IMeetingListDto extends IAppointmentEventDto {
 }
 
-export enum LocationCriteriaDto {
-    PARENT_ID = "PARENT_ID",
-    ATTRIBUTE_PRESENT = "ATTRIBUTE_PRESENT",
+export class AbsenceListDto extends AppointmentEventDto implements IAbsenceListDto {
+    absenceReasonId!: number | undefined;
+
+    constructor(data?: IAbsenceListDto) {
+        super(data);
+        this._discriminator = "AbsenceListDto";
+    }
+
+    override init(_data?: any) {
+        super.init(_data);
+        if (_data) {
+            this.absenceReasonId = _data["absenceReasonId"];
+        }
+    }
+
+    static override fromJS(data: any): AbsenceListDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new AbsenceListDto();
+        result.init(data);
+        return result;
+    }
+
+    override toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["absenceReasonId"] = this.absenceReasonId;
+        super.toJSON(data);
+        return data;
+    }
+}
+
+export interface IAbsenceListDto extends IAppointmentEventDto {
+    absenceReasonId: number | undefined;
 }
 
