@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Test API",
+    "description": "Test REST API",
+    "license": {
+      "name": "Proprietary"
+    },
+    "version": "v-1"
+  },
+  "servers": [
+    {
+      "url": "https://test.eu",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "UseAttributeInAdditionalInfoDto": {
+        "required": ["attributeName", "transformerType"],
+        "type": "object",
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "transformerType": {
+            "$ref": "#/components/schemas/LocationNodeTransformerType"
+          }
+        }
+      },
+      "LocationNodeTransformerType": {
+        "type": "string",
+        "enum": ["USE_ATTRIBUTE_IN_ADDITIONAL_INFO"]
+      },
+      "LocationNodeTransformerDto": {
+        "required": ["transformerType"],
+        "type": "object",
+        "properties": {
+          "transformerType": {
+            "$ref": "#/components/schemas/LocationNodeTransformerType"
+          }
+        },
+        "discriminator": {
+          "propertyName": "transformerType",
+          "mapping": {
+            "USE_ATTRIBUTE_IN_ADDITIONAL_INFO": "#/components/schemas/UseAttributeInAdditionalInfoDto"
+          }
+        },
+        "oneOf": [{
+          "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
+        }]
+      },
+      "LocationNodeTransformerDto2": {
+        "required": ["transformerType2"],
+        "type": "object",
+        "properties": {
+          "transformerType2": {
+            "$ref": "#/components/schemas/LocationNodeTransformerType"
+          }
+        },
+        "discriminator": {
+          "propertyName": "transformerType2",
+          "mapping": {
+            "USE_ATTRIBUTE_IN_ADDITIONAL_INFO2": "#/components/schemas/UseAttributeInAdditionalInfoDto"
+          }
+        },
+        "oneOf": [{
+          "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
+        }]
+      },
+      "LocationCriteriaDto": {
+        "type": "string",
+        "enum": ["PARENT_ID", "ATTRIBUTE_PRESENT"]
+      },
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

@@ -8,11 +8,15 @@ namespace CodeGeneration.Tests;
 public class OneOfTests
 {
 
-    [Fact]
-    public async Task BasicExample()
+    [Theory]
+    [InlineData("test1.json")]
+    [InlineData("inheritance-allof.json")]
+    [InlineData("inheritance-oneof.json")]
+    [InlineData("pet-store.json")]
+    public async Task Sample(string file)
     {
         // Arrange
-        var document = await OpenApiDocument.FromFileAsync("test1.json");
+        var document = await OpenApiDocument.FromFileAsync(file);
         var clientGenerator = new TypeScriptClientGenerator(
             document,
             new TypeScriptClientGeneratorSettings
@@ -29,30 +33,6 @@ public class OneOfTests
         var code = clientGenerator.GenerateFile();
 
         // Assert
-        await VerifyHelper.Verify(code);
-    }
-    
-    [Fact]
-    public async Task PetStoreExample()
-    {
-        // Arrange
-        var document = await OpenApiDocument.FromFileAsync("pet-store.json");
-        var clientGenerator = new TypeScriptClientGenerator(
-            document,
-            new TypeScriptClientGeneratorSettings
-            {
-                TypeScriptGeneratorSettings =
-                {
-                    TypeScriptVersion = 4.3m,
-                    NullValue = TypeScriptNullValue.Undefined
-                }
-            }
-        );
-
-        // Act
-        var code = clientGenerator.GenerateFile();
-
-        // Assert
-        await VerifyHelper.Verify(code);
+        await VerifyHelper.Verify(code, settings => settings.UseFileName(file));
     }
 }
