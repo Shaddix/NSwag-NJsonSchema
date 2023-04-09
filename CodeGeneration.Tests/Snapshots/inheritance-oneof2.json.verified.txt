@@ -72,6 +72,8 @@ export interface ILocationCriteriaDto {
 }
 
 export class AttributePresentLocationCriteriaDto extends LocationCriteriaDto implements IAttributePresentLocationCriteriaDto {
+    attributeName!: string;
+    criteriaType!: LocationCriteriaType;
 
     [key: string]: any;
 
@@ -87,6 +89,8 @@ export class AttributePresentLocationCriteriaDto extends LocationCriteriaDto imp
                 if (_data.hasOwnProperty(property))
                     this[property] = _data[property];
             }
+            this.attributeName = _data["attributeName"];
+            this.criteriaType = _data["criteriaType"];
         }
     }
 
@@ -103,12 +107,16 @@ export class AttributePresentLocationCriteriaDto extends LocationCriteriaDto imp
             if (this.hasOwnProperty(property))
                 data[property] = this[property];
         }
+        data["attributeName"] = this.attributeName;
+        data["criteriaType"] = this.criteriaType;
         super.toJSON(data);
         return data;
     }
 }
 
 export interface IAttributePresentLocationCriteriaDto extends ILocationCriteriaDto {
+    attributeName: string;
+    criteriaType: LocationCriteriaType;
 
     [key: string]: any;
 }
@@ -124,6 +132,9 @@ export enum LocationType {
 }
 
 export class ParentIdLocationCriteriaDto extends LocationCriteriaDto implements IParentIdLocationCriteriaDto {
+    parentLocationId?: number;
+    locationType?: LocationType;
+    criteriaType!: LocationCriteriaType;
 
     [key: string]: any;
 
@@ -139,6 +150,9 @@ export class ParentIdLocationCriteriaDto extends LocationCriteriaDto implements 
                 if (_data.hasOwnProperty(property))
                     this[property] = _data[property];
             }
+            this.parentLocationId = _data["parentLocationId"];
+            this.locationType = _data["locationType"];
+            this.criteriaType = _data["criteriaType"];
         }
     }
 
@@ -155,12 +169,18 @@ export class ParentIdLocationCriteriaDto extends LocationCriteriaDto implements 
             if (this.hasOwnProperty(property))
                 data[property] = this[property];
         }
+        data["parentLocationId"] = this.parentLocationId;
+        data["locationType"] = this.locationType;
+        data["criteriaType"] = this.criteriaType;
         super.toJSON(data);
         return data;
     }
 }
 
 export interface IParentIdLocationCriteriaDto extends ILocationCriteriaDto {
+    parentLocationId?: number;
+    locationType?: LocationType;
+    criteriaType: LocationCriteriaType;
 
     [key: string]: any;
 }

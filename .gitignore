@@ -1,5 +1,7 @@
 **/*.received.txt
 **/*.txt.bak
+CodeGeneration.Tests/temp.json
+CodeGeneration.Tests/Snapshots/temp.json.verified.txt
 publish
 publish-win
 publish-linux

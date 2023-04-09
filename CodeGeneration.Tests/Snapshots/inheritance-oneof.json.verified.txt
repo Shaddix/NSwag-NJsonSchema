@@ -67,6 +67,8 @@ export interface ILocationNodeTransformerDto {
 }
 
 export class UseAttributeInAdditionalInfoDto extends LocationNodeTransformerDto implements IUseAttributeInAdditionalInfoDto {
+    attributeName!: string;
+    transformerType!: LocationNodeTransformerType;
 
     [key: string]: any;
 
@@ -82,6 +84,8 @@ export class UseAttributeInAdditionalInfoDto extends LocationNodeTransformerDto 
                 if (_data.hasOwnProperty(property))
                     this[property] = _data[property];
             }
+            this.attributeName = _data["attributeName"];
+            this.transformerType = _data["transformerType"];
         }
     }
 
@@ -98,12 +102,16 @@ export class UseAttributeInAdditionalInfoDto extends LocationNodeTransformerDto 
             if (this.hasOwnProperty(property))
                 data[property] = this[property];
         }
+        data["attributeName"] = this.attributeName;
+        data["transformerType"] = this.transformerType;
         super.toJSON(data);
         return data;
     }
 }
 
 export interface IUseAttributeInAdditionalInfoDto extends ILocationNodeTransformerDto {
+    attributeName: string;
+    transformerType: LocationNodeTransformerType;
 
     [key: string]: any;
 }
