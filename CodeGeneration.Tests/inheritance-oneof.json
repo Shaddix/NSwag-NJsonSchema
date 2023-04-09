@@ -51,28 +51,10 @@
           "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
         }]
       },
-      "LocationNodeTransformerDto2": {
-        "required": ["transformerType2"],
-        "type": "object",
-        "properties": {
-          "transformerType2": {
-            "$ref": "#/components/schemas/LocationNodeTransformerType"
-          }
-        },
-        "discriminator": {
-          "propertyName": "transformerType2",
-          "mapping": {
-            "USE_ATTRIBUTE_IN_ADDITIONAL_INFO2": "#/components/schemas/UseAttributeInAdditionalInfoDto"
-          }
-        },
-        "oneOf": [{
-          "$ref": "#/components/schemas/UseAttributeInAdditionalInfoDto"
-        }]
-      },
       "LocationCriteriaDto": {
         "type": "string",
         "enum": ["PARENT_ID", "ATTRIBUTE_PRESENT"]
-      },
+      }
     },
     "securitySchemes": {
       "bearer": {
