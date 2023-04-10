@@ -1,6 +1,6 @@
 {
   "name": "nswag-portable",
-  "version": "13.18.1-v.3",
+  "version": "13.18.1-v.4",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
