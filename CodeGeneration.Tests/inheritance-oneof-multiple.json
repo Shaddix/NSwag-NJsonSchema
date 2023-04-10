@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Test API",
+    "description": "Test REST API",
+    "license": {
+      "name": "Proprietary"
+    },
+    "version": "v-1"
+  },
+  "servers": [
+    {
+      "url": "https://test.eu",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "AttributeFilterExpressionDto": {
+        "required": ["attributeName"],
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "string"
+          },
+          "attributeName": {
+            "type": "string"
+          }
+        }
+      },
+      "CompleteFilterExpressionDto": {
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "filterExpressionType",
+          "mapping": {
+            "ATTRIBUTE_FILTER_EXPRESSION": "#/components/schemas/AttributeFilterExpressionDto",
+            "GROUP_FILTER_EXPRESSION": "#/components/schemas/GroupFilterExpressionDto"
+          }
+        },
+        "oneOf": [{
+          "$ref": "#/components/schemas/AttributeFilterExpressionDto"
+        }, {
+          "$ref": "#/components/schemas/GroupFilterExpressionDto"
+        }]
+      },
+      "GroupFilterExpressionDto": {
+        "required": ["filterExpressions"],
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "string"
+          },
+          "filterExpressions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompleteFilterExpressionDto"
+            }
+          }
+        }
+      },
+      "FilterExpressionDto": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "filterExpressionType",
+          "mapping": {
+            "ATTRIBUTE_FILTER_EXPRESSION": "#/components/schemas/AttributeFilterExpressionDto",
+            "GROUP_FILTER_EXPRESSION": "#/components/schemas/GroupFilterExpressionDto",
+            "EXISTING_EXPRESSION": "#/components/schemas/ExpressionForExistingAttributeFilterDto"
+          }
+        },
+        "oneOf": [{
+          "$ref": "#/components/schemas/AttributeFilterExpressionDto"
+        }, {
+          "$ref": "#/components/schemas/GroupFilterExpressionDto"
+        }, {
+          "$ref": "#/components/schemas/ExpressionForExistingAttributeFilterDto"
+        }]
+      },
+      "ExpressionForExistingAttributeFilterDto": {
+        "required": ["filterId"],
+        "type": "object",
+        "properties": {
+          "filterId": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
