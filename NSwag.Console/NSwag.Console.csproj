@@ -32,7 +32,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript\NJsonSchema.CodeGeneration.TypeScript.csproj" />
+      <ProjectReference Include="..\NJsonSchema\src\NJsonSchema.CodeGeneration.CSharp\NJsonSchema.CodeGeneration.CSharp.csproj" />
       <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj" />
+      <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.CSharp\NSwag.CodeGeneration.CSharp.csproj" />
     </ItemGroup>
 
 </Project>
