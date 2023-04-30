@@ -12,3 +12,4 @@ Notice, that we build NSwag and NJsonSchema from NON-OFFICIAL repositories:
 These repositories contains fixes for:
 
 - Correct handling of `OneOf` statements (when there are more than one of them).
+- Handling of JSON-serialized Query parameters (https://swagger.io/docs/specification/describing-parameters/#schema-vs-content)
