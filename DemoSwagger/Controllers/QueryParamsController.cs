@@ -1,4 +1,5 @@
-﻿using DemoSwagger;
+﻿using System.Text.Json;
+using DemoSwagger;
 using DemoSwagger.FromQueryJson;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +9,20 @@ using Microsoft.AspNetCore.Mvc;
 public class QueryParamsController
 {
     [HttpGet("One")]
-    public void One([FromQuery]DummyDto param)
+    public string One([FromQuery]DummyDto param)
     {
+        return JsonSerializer.Serialize(param);
     }
     
     [HttpGet("JsonInQueryParams")]
-    public void JsonInQueryParams([FromJsonQuery]DummyDto param)
+    public string JsonInQueryParams([FromJsonQuery]DummyDto param)
     {
+        return JsonSerializer.Serialize(param);
+    }
+    
+    [HttpGet("DictionaryInQueryParams")]
+    public string DictionaryInQueryParams([FromQuery]Dictionary<string, string> param)
+    {
+        return JsonSerializer.Serialize(param);
     }
 }
