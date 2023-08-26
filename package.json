@@ -1,6 +1,6 @@
 {
   "name": "nswag-portable",
-  "version": "13.20.0-v.11",
+  "version": "13.20.0-v.12",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
@@ -15,7 +15,7 @@
     "prepublish": "yarn clean && yarn build",
     "update-submnodule":"git submodule update --remote",
     "build": "yarn publish-win && yarn publish-linux && yarn publish-mac && yarn copy-to-publish",
-    "clean": "yarn rimraf publish-win && yarn rimraf publish-linux && yarn rimraf publish-mac",
+    "clean": "yarn rimraf publish-win && yarn rimraf publish-linux && yarn rimraf publish-mac && yarn rimraf publish-mac-arm",
     "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn rename -f publish-mac/nswag-portable ../bin/nswag-portable.mac && yarn rename -f publish-mac-arm/nswag-portable ../bin/nswag-portable.mac.arm",
     "publish-win": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r win-x64 -o publish-win",
     "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux",
