@@ -20,7 +20,7 @@ export class DictionaryReturnClient {
     jsonInQueryParams(param: DummyDto | null | undefined): Promise<void> {
         let url_ = this.baseUrl + "/dictionary/JsonInQueryParams?";
         if (param !== undefined && param !== null)
-            url_ += "param=" + JSON.stringify(item_) + "&";
+            url_ += "param=" + JSON.stringify(param) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_: RequestInit = {
