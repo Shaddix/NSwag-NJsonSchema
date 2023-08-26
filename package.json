@@ -1,6 +1,6 @@
 {
   "name": "nswag-portable",
-  "version": "13.19.0-v.11",
+  "version": "13.20.0-v.11",
   "main": "index.js",
   "repository": "https://github.com/Shaddix/NSwag-NJsonSchema.git",
   "author": "Artur Drobinskiy <artur.drobinskiy@mcc-soft.de>",
@@ -16,10 +16,11 @@
     "update-submnodule":"git submodule update --remote",
     "build": "yarn publish-win && yarn publish-linux && yarn publish-mac && yarn copy-to-publish",
     "clean": "yarn rimraf publish-win && yarn rimraf publish-linux && yarn rimraf publish-mac",
-    "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn rename -f publish-mac/nswag-portable ../bin/nswag-portable.mac",
+    "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn rename -f publish-mac/nswag-portable ../bin/nswag-portable.mac && yarn rename -f publish-mac-arm/nswag-portable ../bin/nswag-portable.mac.arm",
     "publish-win": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r win-x64 -o publish-win",
     "publish-linux": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r linux-x64 -o publish-linux",
     "publish-mac": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r osx-x64 -o publish-mac",
+    "publish-mac-arm": "dotnet publish NSwag.Console/NSwag.Console.csproj --sc -c Release -r osx-arm64 -o publish-mac-arm",
     "verify": "bin/nswag-portable openapi2tsclient /input:https://petstore.swagger.io/v2/swagger.json /output:axios-client.ts /template:Axios /serviceHost:."
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
   "files": [
     "bin/nswag-portable",
     "bin/nswag-portable.mac",
+    "bin/nswag-portable.mac.arm",
     "bin/nswag-portable.exe",
     "nswag-portable.js"
   ],
