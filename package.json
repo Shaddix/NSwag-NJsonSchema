@@ -13,6 +13,7 @@
   "scripts": {
     "do-publish": "yarn publish",
     "prepublish": "yarn clean && yarn build",
+    "update-submnodule":"git submodule update --remote",
     "build": "yarn publish-win && yarn publish-linux && yarn publish-mac && yarn copy-to-publish",
     "clean": "yarn rimraf publish-win && yarn rimraf publish-linux && yarn rimraf publish-mac",
     "copy-to-publish": "yarn copyfiles -u 1 publish-win/nswag-portable.exe bin && yarn copyfiles -u 1 publish-linux/nswag-portable bin && yarn rename -f publish-mac/nswag-portable ../bin/nswag-portable.mac",
