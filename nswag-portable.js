@@ -9,7 +9,8 @@ var args = process.argv.splice(2, process.argv.length - 2).map(function (a) { re
 
 const isMacOs = os.platform() === 'darwin';
 const isMaxOsArm = isMacOs && os.arch()?.includes('arm');
-const nswagPath = __dirname + '/bin/nswag-portable' + (isMacOs ? (isMaxOsArm ? '.mac.arm': '.mac') : '');
+//const nswagPath = __dirname + '/bin/nswag-portable' + (isMacOs ? (isMaxOsArm ? '.mac.arm': '.mac') : '');
+const nswagPath = __dirname + '/bin/nswag-portable' + (isMacOs ? '.mac' : '');
 
 const fs = require('fs');
 fs.chmodSync(nswagPath, '755');
