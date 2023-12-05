@@ -23,6 +23,7 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\NJsonSchema\src\NJsonSchema.CodeGeneration.TypeScript.Tests\NJsonSchema.CodeGeneration.TypeScript.Tests.csproj" />
+        <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.CSharp\NSwag.CodeGeneration.CSharp.csproj" />
         <ProjectReference Include="..\NSwag\src\NSwag.CodeGeneration.TypeScript\NSwag.CodeGeneration.TypeScript.csproj" />
     </ItemGroup>
 
@@ -49,6 +50,10 @@
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include="json-in-query.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <None Remove="atlas-openapi.json" />
+        <Content Include="atlas-openapi.json">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
