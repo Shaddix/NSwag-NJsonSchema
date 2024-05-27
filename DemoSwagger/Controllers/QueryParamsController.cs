@@ -20,6 +20,12 @@ public class QueryParamsController
         return JsonSerializer.Serialize(param);
     }
     
+    [HttpGet("NestedJsonInQuery")]
+    public string NestedJsonInQuery(NestedJsonInQuery paramWithNested)
+    {
+        return JsonSerializer.Serialize(paramWithNested);
+    }
+    
     [HttpGet("DictionaryInQueryParams")]
     public string DictionaryInQueryParams([FromQuery]Dictionary<string, string> param)
     {

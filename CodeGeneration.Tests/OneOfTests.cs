@@ -17,6 +17,7 @@ public class OneOfTests
     [InlineData("inheritance-oneof-multiple.json")]
     [InlineData("pet-store.json")]
     [InlineData("json-in-query.json")]
+    [InlineData("json-in-query2.json")]
     public async Task Sample(string file)
     {
         // Arrange
