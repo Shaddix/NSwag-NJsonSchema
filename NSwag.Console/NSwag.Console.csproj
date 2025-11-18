@@ -11,23 +11,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="NSwag.Commands">
-        <HintPath>..\NSwag\src\NSwag.Commands\bin\Debug\net7.0\NSwag.Commands.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Include="..\NSwag\src\NSwag.ConsoleCore\CoreConsoleHost.cs">
         <Link>CoreConsoleHost.cs</Link>
       </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NConsole" Version="3.9.6519.30868" />
-      <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
-      <PackageReference Include="System.Net.Http" Version="4.3.4" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-      <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="7.0.0" />
+      <PackageReference Include="System.IO.FileSystem"  />
+      <PackageReference Include="System.Net.Http"  />
+      <PackageReference Include="Microsoft.Extensions.DependencyModel" />
     </ItemGroup>
 
     <ItemGroup>

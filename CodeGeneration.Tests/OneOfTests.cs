@@ -4,10 +4,12 @@ using NSwag.CodeGeneration.TypeScript;
 
 namespace CodeGeneration.Tests;
 
-[UsesVerify]
-public class OneOfTests
+public class OneOfTests:VerifyBase
 {
-
+    public OneOfTests() : base()
+    {
+    }
+    
     [Theory]
     [InlineData("test1.json")]
     [InlineData("inheritance-allof.json")]

@@ -5,10 +5,13 @@ using NSwag.CodeGeneration.TypeScript;
 
 namespace CodeGeneration.Tests;
 
-[UsesVerify]
-public class ToCsharp
+public class ToCsharp: VerifyBase
 {
-
+    public ToCsharp() : base()
+    {
+        
+    }
+    
     [Theory]
     [InlineData("atlas-openapi.json")]
     public async Task Sample(string file)

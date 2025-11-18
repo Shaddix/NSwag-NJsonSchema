@@ -3,7 +3,6 @@
 // </auto-generated>
 //----------------------
 
-/* tslint:disable */
 /* eslint-disable */
 // ReSharper disable InconsistentNaming
 
@@ -20,7 +19,7 @@ export class CompleteFilterExpressionDto implements ICompleteFilterExpressionDto
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
+                    (this as any)[property] = (data as any)[property];
             }
         }
         this._discriminator = "CompleteFilterExpressionDto";
@@ -168,7 +167,7 @@ export class GroupFilterExpressionDto extends CompleteFilterExpressionDto implem
         if (Array.isArray(this.filterExpressions)) {
             data["filterExpressions"] = [];
             for (let item of this.filterExpressions)
-                data["filterExpressions"].push(item.toJSON());
+                data["filterExpressions"].push(item ? item.toJSON() : undefined as any);
         }
         super.toJSON(data);
         return data;
@@ -192,7 +191,7 @@ export class FilterExpressionDto implements IFilterExpressionDto {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
+                    (this as any)[property] = (data as any)[property];
             }
         }
         this._discriminator = "FilterExpressionDto";
@@ -392,7 +391,7 @@ export class GroupFilterExpressionDto_FilterExpressionDto extends FilterExpressi
         if (Array.isArray(this.filterExpressions)) {
             data["filterExpressions"] = [];
             for (let item of this.filterExpressions)
-                data["filterExpressions"].push(item.toJSON());
+                data["filterExpressions"].push(item ? item.toJSON() : undefined as any);
         }
         super.toJSON(data);
         return data;

@@ -496,12 +496,12 @@
               "SCHEDULED",
               "SYNCTRANSLATOR"
             ],
-            "x-enumDescriptions": {
-              "DATABASE": "Return Database Triggers",
-              "AUTHENTICATION": "Return Authentication Triggers",
-              "SCHEDULED": "Return Scheduled Triggers",
-              "SYNCTRANSLATOR": "Return Device Sync translators"
-            }
+            "x-enumDescriptions": [
+              "Return Database Triggers",
+              "Return Authentication Triggers",
+              "Return Scheduled Triggers",
+              "Return Device Sync translators"
+            ]
           }
         }
       ],
